@@ -1,0 +1,54 @@
+{
+  "name": "scalingo_monitor",
+  "version": "0.0.1",
+  "description": "Check app metrics on scalingo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node -- src/index.js",
+    "debug": "nodemon --exec babel-node -- src/index.js --inspect=7001",
+    "build": "babel src --out-dir dist",
+    "prod": "node src/index.js",
+    "lint": "eslint src/",
+    "doc": "apidoc -i src/ -o doc/"
+  },
+  "author": "Fadomire",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fadomire/scalingo_monitor.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^4.0.0",
+    "filter-object": "^3.0.0",
+    "is_js": "^0.9.0",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^3.2.0",
+    "eslint-config-zavatta": "^4.2.0",
+    "eslint-plugin-import": "^1.6.1",
+    "nodemon": "^1.11.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "zavatta",
+    "rules": {
+      "no-console": 0,
+      "callback-return": 0
+    }
+  }
+}

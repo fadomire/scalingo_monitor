@@ -1,0 +1,5 @@
+*.log
+src
+node_modules
+.env
+doc
