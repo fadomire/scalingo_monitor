@@ -31,8 +31,10 @@ const checkMetrics = async type => {
 
 	const max = _.max(metricUsage, metric => metric.value)
 
+	const maxValue = type  === 'cpu' ? max.value : max.value / 1000000
 
-	if (max.value >= process.env[type.toUpperCase() + '_THRESHOLD'] && lastNotif[type] !== max.time) {
+
+	if (maxValue >= process.env[type.toUpperCase() + '_THRESHOLD'] && lastNotif[type] !== max.time) {
 
 		console.log('sending slack notif for '+type+' overload for ' + process.env.APP_NAME)
 
